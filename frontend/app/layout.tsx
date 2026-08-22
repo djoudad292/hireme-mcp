@@ -1,19 +1,18 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Instrument_Serif, IBM_Plex_Mono } from "next/font/google";
+import { Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
 const space = Space_Grotesk({ subsets: ["latin"], variable: "--font-space" });
-const serif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: ["normal", "italic"], variable: "--font-serif" });
 const plex = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-plex" });
 
 export const metadata: Metadata = {
-  title: "HireMe MCP — the first portfolio AI agents can hire",
+  title: "HireMe MCP — AI Agent Server for Hiring Djaouad Frih",
   description:
     "An MCP server that exposes Djaouad Frih's profile, shipped projects, pricing and a project-brief intake — so Claude, Cursor or ChatGPT can find him, vet him and hire him for you.",
   openGraph: {
-    title: "HireMe MCP — the first portfolio AI agents can hire",
+    title: "HireMe MCP — AI Agent Server for Hiring Djaouad Frih",
     description:
-      "Connect this portfolio to your AI assistant and let it vet the work, check pricing and file the project brief.",
+      "Connect this MCP server to your AI assistant and let it vet the work, check pricing and file the project brief.",
     url: "https://mcp.djaouad.tech",
     siteName: "HireMe MCP",
     type: "website",
@@ -23,7 +22,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${space.variable} ${serif.variable} ${plex.variable}`}>{children}</body>
+      <body className={`${space.variable} ${plex.variable} font-sans antialiased`}>{children}</body>
     </html>
   );
 }

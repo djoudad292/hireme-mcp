@@ -1,20 +1,20 @@
 @import 'tailwindcss';
 
-/* HireMe MCP — demo-family design, violet edition */
+/* HireMe MCP — demo-family design (matches SupportAI layout), cyan edition */
 
 :root {
-  --background: #0d0a1a;
-  --foreground: #f5f3ff;
-  --card: #161028;
-  --popover: #161028;
-  --primary: #8b5cf6;
-  --primary-foreground: #ffffff;
-  --secondary: #1e1636;
-  --muted: #1e1636;
-  --muted-foreground: #9d94b8;
-  --accent: #c084fc;
-  --border: #2a2140;
-  --ring: #8b5cf6;
+  --background: #060b14;
+  --foreground: #f8fafc;
+  --card: #111827;
+  --popover: #111827;
+  --primary: #22d3ee;
+  --primary-foreground: #060b14;
+  --secondary: #10192b;
+  --muted: #10192b;
+  --muted-foreground: #94a3b8;
+  --accent: #67e8f9;
+  --border: #1e293b;
+  --ring: #22d3ee;
 }
 
 @theme inline {
@@ -46,10 +46,9 @@
   }
   body {
     @apply bg-background font-sans text-foreground antialiased;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
   }
   ::selection {
     background: var(--primary);
-    color: #ffffff;
+    color: var(--primary-foreground);
   }
 }

@@ -13,12 +13,12 @@ import {
 import { API_URL } from "./config";
 
 const C = {
-  bg: "#0d0a1a",
-  card: "#161028",
-  border: "#2a2140",
-  fg: "#f5f3ff",
-  muted: "#9d94b8",
-  lime: "#8b5cf6",
+  bg: "#060b14",
+  card: "#111827",
+  border: "#1e293b",
+  fg: "#f8fafc",
+  muted: "#94a3b8",
+  lime: "#22d3ee",
 };
 
 type Tab = "profile" | "tools" | "briefs";
