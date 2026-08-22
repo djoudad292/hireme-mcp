@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Play, Loader2 } from "lucide-react";
 
 const API = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4343";
+const IS_REMOTE = API.startsWith("https");
 
 type ToolId = "get_profile" | "search_projects" | "get_pricing" | "get_next_slot" | "submit_project_brief";
 

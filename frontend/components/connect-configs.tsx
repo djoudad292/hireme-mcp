@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { CopyButton } from "./copy-button";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://hireme-mcp-backend.onrender.com";
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://mcp.djaouad.tech";
 const MCP_URL = `${API_URL}/mcp`;
 
 const TABS = [

@@ -2,7 +2,7 @@
 
 **The first portfolio AI agents can hire.** An open [Model Context Protocol](https://modelcontextprotocol.io) server that exposes Djaouad Frih's real profile, shipped products, fixed pricing and a project-brief intake — so Claude, Cursor, ChatGPT or any MCP client can vet the work and file a brief on your behalf.
 
-Live: **https://mcp.djaouad.tech** · MCP endpoint: `https://hireme-mcp-backend.onrender.com/mcp`
+Live: **https://mcp.djaouad.tech** · MCP endpoint: `https://mcp.djaouad.tech/mcp`
 
 ## Tools
 
@@ -52,7 +52,7 @@ Copy `backend/.env.example` → `.env`. Without `DATABASE_URL` it runs in memory
 ## Connect in one paste
 
 ```json
-{ "mcpServers": { "hireme-mcp": { "url": "https://hireme-mcp-backend.onrender.com/mcp" } } }
+{ "mcpServers": { "hireme-mcp": { "url": "https://mcp.djaouad.tech/mcp" } } }
 ```
 
 ---

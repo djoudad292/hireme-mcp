@@ -2,7 +2,7 @@ import { ArrowUpRight, Bot, Plug, FileSignature, Radio } from "lucide-react";
 import { Playground } from "@/components/playground";
 import { ConnectConfigs } from "@/components/connect-configs";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://hireme-mcp-backend.onrender.com";
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://mcp.djaouad.tech";
 
 const STEPS = [
   {

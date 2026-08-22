@@ -4,9 +4,32 @@
   publish = "out"
 
 [build.environment]
-  NEXT_PUBLIC_API_URL = "https://hireme-mcp-backend.onrender.com"
+  NEXT_PUBLIC_API_URL = "https://mcp.djaouad.tech"
+
+# ---- Bridge: one domain for everything -------------------------------
+# Console runs here; MCP/REST/widget are transparently proxied to Render.
 
 [[redirects]]
-  from = "/mcp-proxy/*"
-  to = "https://hireme-mcp-backend.onrender.com/:splat"
+  from = "/mcp"
+  to = "https://hireme-mcp-backend.onrender.com/mcp"
   status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/*"
+  to = "https://hireme-mcp-backend.onrender.com/api/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/widget.js"
+  to = "https://hireme-mcp-backend.onrender.com/widget.js"
+  status = 200
+  force = true
+
+[[headers]]
+  for = "/mcp"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Headers = "Content-Type, Accept, Mcp-Session-Id"
+    Access-Control-Allow-Methods = "POST, OPTIONS"
