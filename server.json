@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.djoudad292/hireme-mcp",
+  "title": "HireMe MCP",
+  "description": "The first portfolio AI agents can hire. Open MCP server exposing Djaouad Frih's real profile, shipped products, fixed pricing and a project-brief intake tool.",
+  "websiteUrl": "https://mcp.djaouad.tech",
+  "repository": {
+    "url": "https://github.com/djoudad292/hireme-mcp",
+    "source": "github"
+  },
+  "version": "1.0.0",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.djaouad.tech/mcp"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+# Smithery configuration — HireMe MCP (remote streamable-http server)
+# Docs: https://smithery.ai/docs
+startCommand:
+  type: http
+  configSchema:
+    type: object
+    properties: {}
+  url: https://mcp.djaouad.tech/mcp
