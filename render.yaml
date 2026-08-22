@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: hireme-mcp-backend
+    runtime: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm ci && npm run build
+    startCommand: node dist/index.js
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: DATABASE_URL
+        sync: false
+      - key: ADMIN_TOKEN
+        sync: false
+      - key: PUBLIC_URL
+        value: https://hireme-mcp-backend.onrender.com
+      - key: GMAIL_USER
+        sync: false
+      - key: GMAIL_APP_PASSWORD
+        sync: false
+      - key: GOOGLE_API_KEY
+        sync: false

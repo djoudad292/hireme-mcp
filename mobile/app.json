@@ -1,0 +1,18 @@
+{
+  "expo": {
+    "name": "HireMe MCP",
+    "slug": "hireme-mcp",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#0a0c10",
+    "splash": { "backgroundColor": "#0a0c10" },
+    "android": {
+      "package": "tech.djaouad.hirememcp",
+      "adaptiveIcon": { "backgroundColor": "#0a0c10" }
+    },
+    "extra": {
+      "apiUrl": "https://hireme-mcp-backend.onrender.com"
+    }
+  }
+}
