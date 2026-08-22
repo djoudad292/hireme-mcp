@@ -1,0 +1,57 @@
+name: Android APK (direct)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "mobile/**"
+      - ".github/workflows/android-apk.yml"
+
+jobs:
+  build-apk:
+    name: Build release APK
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: mobile/package-lock.json
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - uses: android-actions/setup-android@v3
+      - name: Install dependencies
+        working-directory: mobile
+        run: |
+          npm install --package-lock-only
+          npm ci
+      - name: Generate native Android project
+        working-directory: mobile
+        run: npx expo prebuild --platform android --no-install --non-interactive
+      - name: Build release APK
+        working-directory: mobile/android
+        run: ./gradlew assembleRelease
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hireme-mcp-apk
+          path: mobile/android/app/build/outputs/apk/release/app-release.apk
+          if-no-files-found: error
+      - name: Publish APK to GitHub Release
+        run: cp mobile/android/app/build/outputs/apk/release/app-release.apk hireme-mcp.apk
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest-apk
+          name: Latest HireMe MCP APK
+          body: |
+            Latest Android APK built from main.
+          files: hireme-mcp.apk
+          make_latest: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
