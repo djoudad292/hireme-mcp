@@ -51,7 +51,9 @@
     background: var(--primary);
     color: var(--primary-foreground);
   }
-  /* hide Netlify badge */
+  /* hide Netlify badge (injected iframe + any anchor fallback) */
+  #nl-badge-frame,
+  iframe[title="Powered by Netlify"],
   #netlify-badge,
   [data-netlify-badge],
   a[href*="netlify.com/?utm_source"] {
