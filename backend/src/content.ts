@@ -85,32 +85,25 @@ export interface Service {
 
 export const SERVICES: Service[] = [
   {
-    title: "AI agents & chatbots",
-    desc: "Trained on your content — answer, book, qualify, escalate.",
+    title: "Starter — AI chatbot or agent",
+    desc: "Trained on your content: answers, books, qualifies, escalates. Deployed to your domain with an embeddable widget.",
     priceFromUsd: 500,
     priceLabel: "From $500",
     eta: "~1–2 weeks",
   },
   {
-    title: "Document intelligence (RAG)",
-    desc: "Your docs become cited, searchable answers — internal or embedded.",
-    priceFromUsd: 500,
-    priceLabel: "From $500",
-    eta: "~1–2 weeks",
-  },
-  {
-    title: "Full-stack SaaS builds",
-    desc: "Multi-tenant products: auth, payments, dashboards, real-time.",
-    priceFromUsd: null,
-    priceLabel: "Fixed quote after a free call",
-    eta: "2–6 weeks",
-  },
-  {
-    title: "Mobile apps",
-    desc: "One React Native codebase to both stores, push-ready.",
-    priceFromUsd: null,
-    priceLabel: "Fixed quote after a free call",
+    title: "Professional — production AI system",
+    desc: "Everything in Starter plus RAG pipeline, tool calling, admin dashboard and live analytics — the full stack behind Djaouad's own live demos.",
+    priceFromUsd: 2500,
+    priceLabel: "From $2,500",
     eta: "2–4 weeks",
+  },
+  {
+    title: "Custom — SaaS & multi-service products",
+    desc: "Multi-tenant platforms with payments, dashboards, React Native apps and third-party integrations. Scoped on a free call.",
+    priceFromUsd: null,
+    priceLabel: "Fixed quote after a free call",
+    eta: "2–8 weeks",
   },
 ];
 
