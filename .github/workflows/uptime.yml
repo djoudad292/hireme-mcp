@@ -1,0 +1,37 @@
+name: Uptime watchdog — HireMe MCP
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: MCP initialize handshake
+        id: ping
+        run: |
+          CODE=$(curl -s -m 20 -o /tmp/body -w "%{http_code}" -X POST https://mcp.djaouad.tech/mcp \
+            -H "Content-Type: application/json" \
+            -H "Accept: application/json, text/event-stream" \
+            -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"watchdog","version":"1.0"}}}')
+          echo "code=$CODE" >> "$GITHUB_OUTPUT"
+          cat /tmp/body
+          if [ "$CODE" != "200" ]; then
+            echo "DOWN: HTTP $CODE" >&2
+            exit 1
+          fi
+
+      - name: Open issue on downtime
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `🚨 HireMe MCP DOWN (${new Date().toISOString()})`,
+              body: `The uptime watchdog failed the MCP initialize handshake.\n\nRun: ${context.runId}\nCheck Render dashboard immediately — registries re-crawl this endpoint.`,
+              labels: ["incident"]
+            })
