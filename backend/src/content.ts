@@ -8,7 +8,7 @@ export const PROFILE = {
   name: "Djaouad Frih",
   role: "Full-Stack AI Engineer",
   tagline: "I build production AI agents, RAG systems, and the products around them — shipped, not demoed.",
-  location: "Mascara, Algeria (UTC+1) — remote worldwide",
+  location: "Remote worldwide (UTC+1) — overlaps EU & US hours",
   availability: "Booking projects now — can typically start within days.",
   stack: [
     "TypeScript", "Next.js", "NestJS", "React Native (Expo)", "PostgreSQL",
