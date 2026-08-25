@@ -15,7 +15,7 @@ export const PROFILE = {
     "pgvector / RAG", "LangGraph", "Gemini API", "OpenAI API", "Docker",
   ],
   contact: {
-    email: "djaouad.frih@gmail.com",
+    email: "oufr29@gmail.com",
     whatsapp: "+213780688125",
     calendly: "https://calendly.com/oufr29/30min",
     portfolio: "https://djaouad.tech",
