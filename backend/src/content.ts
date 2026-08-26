@@ -20,7 +20,7 @@ export const PROFILE = {
     calendly: "https://calendly.com/oufr29/30min",
     portfolio: "https://djaouad.tech",
     github: "https://github.com/djoudad292",
-    linkedin: "https://linkedin.com/in/djaouad-frih",
+    linkedin: "https://linkedin.com/in/djaouad-frih-16ab7323a",
   },
 } as const;
 
