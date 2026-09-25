@@ -3,8 +3,7 @@
 import { useState } from "react";
 import { Play, Loader2 } from "lucide-react";
 
-const API = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4343";
-const IS_REMOTE = API.startsWith("https");
+const API = process.env.NEXT_PUBLIC_API_URL ?? "https://mcp.djaouad.tech";
 
 type ToolId = "get_profile" | "search_projects" | "get_pricing" | "get_next_slot" | "submit_project_brief";
 
@@ -16,7 +15,14 @@ const TOOLS: { id: ToolId; label: string; args: Record<string, string> }[] = [
   {
     id: "submit_project_brief",
     label: "submit_project_brief",
-    args: { name: "", contact: "", project_type: "AI support chatbot", budget: "$500-$2k", timeline: "ASAP", notes: "" },
+    args: {
+      name: "Demo visitor",
+      contact: "demo@example.com",
+      project_type: "AI support chatbot",
+      budget: "$500-$2k",
+      timeline: "ASAP",
+      notes: "",
+    },
   },
 ];
 
@@ -57,14 +63,14 @@ export function Playground() {
   };
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-border bg-card">
+    <div className="overflow-hidden rounded-lg border border-border bg-card">
       <div className="flex flex-wrap gap-1.5 border-b border-border p-3">
         {TOOLS.map((t) => (
           <button
             key={t.id}
             onClick={() => pick(t)}
-            className={`rounded-full px-3 py-1.5 font-mono text-[11px] transition-colors ${
-              active === t.id ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+            className={`rounded-md px-3 py-1.5 font-mono text-[11px] transition-colors ${
+              active === t.id ? "bg-foreground text-background" : "text-muted-foreground hover:text-foreground"
             }`}
           >
             {t.label}
@@ -87,15 +93,17 @@ export function Playground() {
           <button
             onClick={run}
             disabled={busy}
-            className="mx-4 mb-4 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2 text-xs font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-40"
+            className="mx-4 mb-4 inline-flex items-center gap-2 rounded-md bg-foreground px-4 py-1.5 text-xs font-medium text-background transition-opacity hover:opacity-90 disabled:opacity-40"
           >
             {busy ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Play className="h-3.5 w-3.5" />}
             Run tool
           </button>
         </div>
 
-        <div className="min-h-[220px] bg-background/60">
-          <p className="px-4 pt-3 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">response</p>
+        <div className="min-h-[220px] bg-background/40">
+          <p className="px-4 pt-3 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+            response
+          </p>
           {error && <p className="px-4 py-3 font-mono text-xs text-red-400">✗ {error}</p>}
           <pre className="max-h-[320px] overflow-auto whitespace-pre-wrap px-4 py-3 font-mono text-xs leading-relaxed text-muted-foreground">
             {result || "// pick a tool and hit run — this calls the live API the MCP tools use"}

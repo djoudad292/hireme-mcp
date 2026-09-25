@@ -47,13 +47,13 @@ const TABS = [
 export function ConnectConfigs() {
   const [tab, setTab] = useState(TABS[0]);
   return (
-    <div className="overflow-hidden rounded-2xl border border-border bg-card">
+    <div className="overflow-hidden rounded-lg border border-border bg-card">
       <div className="flex flex-wrap gap-1 border-b border-border p-2">
         {TABS.map((t) => (
           <button
             key={t.id}
             onClick={() => setTab(t)}
-            className={`rounded-lg px-3 py-1.5 text-xs transition-colors ${
+            className={`rounded-md px-3 py-1.5 text-xs transition-colors ${
               tab.id === t.id ? "bg-secondary text-foreground" : "text-muted-foreground hover:text-foreground"
             }`}
           >

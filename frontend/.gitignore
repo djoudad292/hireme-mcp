@@ -3,3 +3,7 @@ node_modules
 out
 dist
 .env*.local
+
+# Netlify local build cache (regenerated from `out/` on every deploy).
+/.netlify/static/
+/.netlify/functions-internal/

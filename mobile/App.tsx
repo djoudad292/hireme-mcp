@@ -71,11 +71,8 @@ function ProfileView() {
       </Card>
       <Card>
         <Text style={s.label}>Contact</Text>
-        <TouchableOpacity onPress={() => Linking.openURL("https://calendly.com/oufr29/30min")}>
-          <Text style={s.link}>Book a free call →</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => Linking.openURL("https://djaouad.tech")}>
-          <Text style={s.link}>djaouad.tech →</Text>
+        <TouchableOpacity onPress={() => Linking.openURL("https://djaouad.is-a.dev")}>
+          <Text style={s.link}>djaouad.is-a.dev →</Text>
         </TouchableOpacity>
       </Card>
     </>

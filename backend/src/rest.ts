@@ -3,6 +3,7 @@ import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/
 import { createMcpServer } from "./mcp.js";
 import { inputSchemas, dispatch, type ToolId } from "./tools.js";
 import { listBriefs } from "./db.js";
+import { hashIp, rateLimit } from "./rateLimit.js";
 
 /**
  * REST surface for non-MCP clients (web playground widget, mobile app).
@@ -30,6 +31,14 @@ restRouter.post("/tools/:id", async (req, res) => {
     res.status(404).json({ error: `Unknown tool '${id}'` });
     return;
   }
+
+  // Guest rate limit: 30 requests/minute per IP for all tools (read + write)
+  const rlKey = `tool:${id}:${hashIp(req.ip)}`;
+  if (!rateLimit(rlKey, 30, 60 * 1000)) {
+    res.status(429).json({ error: "Rate limit exceeded — please wait before calling again." });
+    return;
+  }
+
   try {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const parsed = id === "get_profile" || id === "get_pricing" || id === "get_next_slot"
