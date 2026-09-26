@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Play, Loader2 } from "lucide-react";
 
 const API = process.env.NEXT_PUBLIC_API_URL ?? "https://mcp.djaouad.tech";
+const WAKING_UP = "The demo API is waking up — try again in a few seconds.";
 
 type ToolId = "get_profile" | "search_projects" | "get_pricing" | "get_next_slot" | "submit_project_brief";
 
@@ -51,12 +52,13 @@ export function Playground() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(args),
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error ?? `HTTP ${res.status}`);
+      const data = await res.json().catch(() => null);
+      if (!res.ok) throw new Error(WAKING_UP);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      setResult((data as any).content?.[0]?.text ?? JSON.stringify(data, null, 2));
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "Request failed");
+      setResult((data as any)?.content?.[0]?.text ?? JSON.stringify(data, null, 2));
+    } catch {
+      // Backend asleep or unreachable — never surface a raw fetch/HTTP error.
+      setError(WAKING_UP);
     } finally {
       setBusy(false);
     }
@@ -104,7 +106,7 @@ export function Playground() {
           <p className="px-4 pt-3 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
             response
           </p>
-          {error && <p className="px-4 py-3 font-mono text-xs text-red-400">✗ {error}</p>}
+          {error && <p className="px-4 py-3 font-mono text-xs text-muted-foreground">✗ {error}</p>}
           <pre className="max-h-[320px] overflow-auto whitespace-pre-wrap px-4 py-3 font-mono text-xs leading-relaxed text-muted-foreground">
             {result || "// pick a tool and hit run — this calls the live API the MCP tools use"}
           </pre>

@@ -1,6 +1,7 @@
 import { ArrowUpRight, Download, Plug } from "lucide-react";
 import { Playground } from "@/components/playground";
 import { ConnectConfigs } from "@/components/connect-configs";
+import { WakeSplash } from "@/components/wake-splash";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://mcp.djaouad.tech";
 const APK_URL = "https://github.com/djoudad292/hireme-mcp/releases/download/latest-apk/hireme-mcp.apk";
@@ -96,6 +97,8 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Navbar />
+      {/* Sits above the sticky nav (same z-50, later in DOM) so the whole screen is covered. */}
+      <WakeSplash />
 
       {/* ---------------- Hero ---------------- */}
       <header className="mx-auto grid items-center gap-10 px-5 pb-20 pt-14 lg:grid-cols-[1.1fr_1fr] lg:pt-20">

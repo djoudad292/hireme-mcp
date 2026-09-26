@@ -22,6 +22,12 @@
   force = true
 
 [[redirects]]
+  from = "/health"
+  to = "https://hireme-mcp-backend.onrender.com/health"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/widget.js"
   to = "https://hireme-mcp-backend.onrender.com/widget.js"
   status = 200
