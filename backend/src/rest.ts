@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { z } from "zod";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { createMcpServer } from "./mcp.js";
 import { inputSchemas, dispatch, type ToolId } from "./tools.js";
@@ -52,9 +53,11 @@ restRouter.post("/tools/:id", async (req, res) => {
 });
 
 function requireZodParse(id: ToolId, body: unknown) {
+  // inputSchemas[id] is a zod raw *shape* record, not a schema object:
+  // wrap it with z.object() to get a schema that exposes .parse().
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const schema = (inputSchemas as any)[id];
-  return schema.parse(body);
+  const shape = (inputSchemas as any)[id] as z.ZodRawShape;
+  return z.object(shape).parse(body);
 }
 
 restRouter.get("/briefs", async (req, res) => {
