@@ -58,3 +58,11 @@ Copy `backend/.env.example` → `.env`. Without `DATABASE_URL` it runs in memory
 ---
 
 Built by [Djaouad Frih](https://djaouad.tech) — this server is itself the demo of what he ships.
+
+## Demo
+
+![HireMe MCP landing](screenshots/mcp-landing.png)
+
+![MCP playground](screenshots/mcp-playground.png)
+
+[Demo video: MCP flow](screenshots/mcp-flow.webm)
