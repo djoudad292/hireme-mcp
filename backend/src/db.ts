@@ -10,7 +10,8 @@ const pool = process.env.DATABASE_URL
   ? new Pool({
       connectionString: process.env.DATABASE_URL,
       ssl: /sslmode=require/.test(process.env.DATABASE_URL) ? undefined : { rejectUnauthorized: false },
-      max: 5,
+      // Serverless invocations don't share connections — keep the pool tiny there.
+      max: process.env.VERCEL ? 1 : 5,
     })
   : null;
 
