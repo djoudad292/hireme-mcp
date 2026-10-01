@@ -3,14 +3,14 @@
  *
  * Usage on any site:
  *   <script src="https://hireme-mcp-backend.onrender.com/widget.js" async></script>
- *   <script>window.HIREME_MCP = { apiUrl: "https://mcp.djaouad.tech" };</script>
+ *   <script>window.HIREME_MCP = { apiUrl: "https://mcp.djaouad.is-a.dev" };</script>
  */
 (function () {
   if (window.__hiremeMcpLoaded) return;
   window.__hiremeMcpLoaded = true;
 
   var cfg = Object.assign(
-    { apiUrl: "https://mcp.djaouad.tech", label: "Hire via AI" },
+    { apiUrl: "https://mcp.djaouad.is-a.dev", label: "Hire via AI" },
     window.HIREME_MCP || {}
   );
 

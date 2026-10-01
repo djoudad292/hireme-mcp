@@ -18,7 +18,7 @@ export const PROFILE = {
     email: "oufr29@gmail.com",
     whatsapp: "+213780688125",
     calendly: "https://calendly.com/oufr29/30min",
-    portfolio: "https://djaouad.tech",
+    portfolio: "https://djaouad.is-a.dev",
     github: "https://github.com/djoudad292",
     linkedin: "https://linkedin.com/in/djaouad-frih-16ab7323a",
   },
@@ -46,7 +46,7 @@ export const PROJECTS: Project[] = [
       "Production receptionist trained on a business's own content — answers customers in under a second via RAG over pgvector, books appointments through tool calls, captures leads, routes conversations to the right department and hands off to humans when confidence drops. Ships as web app + published Android app.",
     stack: "Next.js · NestJS · pgvector · React Native · Gemini",
     metrics: ["<1s first response", "24/7 unattended", "Android app published"],
-    demo: "https://chat.djaouad.tech",
+    demo: "https://chat.djaouad.is-a.dev",
     source: "https://github.com/djoudad292/ai-virtual-receptionist",
   },
   {
@@ -58,7 +58,7 @@ export const PROJECTS: Project[] = [
       "Upload documents and ask questions with answers grounded in citations. Multi-tenant teams, token revocation, one-click ask-your-docs widget for embedding on any site. Full ingestion → chunking → pgvector retrieval → generation pipeline.",
     stack: "Next.js · NestJS · pgvector · OpenRouter · JWT",
     metrics: ["Cited RAG answers", "Multi-tenant teams", "Embeddable widget"],
-    demo: "https://docs.djaouad.tech",
+    demo: "https://docs.djaouad.is-a.dev",
     source: "https://github.com/djoudad292/smart-pdf-workspace",
   },
   {
@@ -70,7 +70,7 @@ export const PROJECTS: Project[] = [
       "LangGraph agent wired to real business tools: creates support tickets, checks order status, searches the knowledge base and escalates to humans with full context. Includes an admin dashboard with live analytics and a one-line embeddable chat widget. This very MCP service runs beside it.",
     stack: "Next.js · NestJS · LangGraph · pgvector · WebSocket",
     metrics: ["5 tools wired to the agent", "Live admin analytics", "One-line embed"],
-    demo: "https://customer.djaouad.tech",
+    demo: "https://customer.djaouad.is-a.dev",
     source: "https://github.com/djoudad292/ai-customer-support-agent",
   },
 ];

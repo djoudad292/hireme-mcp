@@ -153,7 +153,7 @@ export async function handleSubmitProjectBrief(args: {
       emailed ? "Confirmation email sent to Djaouad." : undefined,
       "",
       "He replies with a fixed quote and start date within 24 hours.",
-      `Fast track: book directly at ${AVAILABILITY.bookingUrl} or WhatsApp ${PROFILE.contact.whatsapp}.`,
+      `Fast track: describe your project at https://djaouad.is-a.dev/#project-intake or WhatsApp ${PROFILE.contact.whatsapp}.`,
     ]
       .filter(Boolean)
       .join("\n"),

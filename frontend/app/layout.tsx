@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: "HireMe MCP — AI Agent Server for Hiring Djaouad Frih",
     description:
       "Connect this MCP server to your AI assistant and let it vet the work, check pricing and file the project brief.",
-    url: "https://mcp.djaouad.tech",
+    url: "https://mcp.djaouad.is-a.dev",
     siteName: "HireMe MCP",
     type: "website",
   },

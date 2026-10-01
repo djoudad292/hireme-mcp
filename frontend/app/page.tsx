@@ -3,7 +3,7 @@ import { Playground } from "@/components/playground";
 import { ConnectConfigs } from "@/components/connect-configs";
 import { WakeSplash } from "@/components/wake-splash";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://mcp.djaouad.tech";
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://mcp.djaouad.is-a.dev";
 const APK_URL = "https://github.com/djoudad292/hireme-mcp/releases/download/latest-apk/hireme-mcp.apk";
 const GITHUB_URL = "https://github.com/djoudad292/hireme-mcp";
 const BLOG_URL = "https://djaouad.is-a.dev";
@@ -65,7 +65,7 @@ function McpPanel() {
           <div className="rounded-md border border-border bg-background px-3 py-2.5">
             <p className="mb-1 text-[9px] uppercase tracking-wider text-foreground">agent · tool call</p>
             <p className="text-muted-foreground">search_projects("RAG") →</p>
-            <p className="mt-1 text-foreground">Smart PDF Workspace — docs.djaouad.tech ✓</p>
+            <p className="mt-1 text-foreground">Smart PDF Workspace — docs.djaouad.is-a.dev ✓</p>
           </div>
           <div className="rounded-md bg-foreground px-3 py-2.5 font-medium text-background">
             <p className="mb-1 text-[9px] uppercase opacity-70">submit_project_brief()</p>

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Play, Loader2 } from "lucide-react";
 
-const API = process.env.NEXT_PUBLIC_API_URL ?? "https://mcp.djaouad.tech";
+const API = process.env.NEXT_PUBLIC_API_URL ?? "https://mcp.djaouad.is-a.dev";
 const WAKING_UP = "The demo API is waking up — try again in a few seconds.";
 
 type ToolId = "get_profile" | "search_projects" | "get_pricing" | "get_next_slot" | "submit_project_brief";
