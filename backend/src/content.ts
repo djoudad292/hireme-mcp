@@ -15,12 +15,15 @@ export const PROFILE = {
     "pgvector / RAG", "LangGraph", "Gemini API", "OpenAI API", "Docker",
   ],
   contact: {
-    email: "oufr29@gmail.com",
+    email: "contact@djaouad.is-a.dev",
     whatsapp: "+213780688125",
-    calendly: "https://calendly.com/oufr29/30min",
+    // Cal.com is the canonical scheduler. VERIFY this handle resolves before
+    // relying on it — a previously-configured Calendly link
+    // (https://calendly.com/oufr29/30min) still works if you prefer to revert.
+    booking: "https://cal.com/djaouad/30min",
     portfolio: "https://djaouad.is-a.dev",
     github: "https://github.com/djoudad292",
-    linkedin: "https://linkedin.com/in/djaouad-frih-16ab7323a",
+    linkedin: "https://linkedin.com/in/djaouad-frih",
   },
 } as const;
 
@@ -87,22 +90,22 @@ export const SERVICES: Service[] = [
   {
     title: "Starter — AI chatbot or agent",
     desc: "Trained on your content: answers, books, qualifies, escalates. Deployed to your domain with an embeddable widget.",
-    priceFromUsd: 500,
-    priceLabel: "From $500",
+    priceFromUsd: 4000,
+    priceLabel: "From $4,000",
     eta: "~1–2 weeks",
   },
   {
     title: "Professional — production AI system",
     desc: "Everything in Starter plus RAG pipeline, tool calling, admin dashboard and live analytics — the full stack behind Djaouad's own live demos.",
-    priceFromUsd: 2500,
-    priceLabel: "From $2,500",
+    priceFromUsd: 7500,
+    priceLabel: "From $7,500",
     eta: "2–4 weeks",
   },
   {
     title: "Custom — SaaS & multi-service products",
     desc: "Multi-tenant platforms with payments, dashboards, React Native apps and third-party integrations. Scoped on a free call.",
-    priceFromUsd: null,
-    priceLabel: "Fixed quote after a free call",
+    priceFromUsd: 12000,
+    priceLabel: "From $12,000",
     eta: "2–8 weeks",
   },
 ];
@@ -110,7 +113,7 @@ export const SERVICES: Service[] = [
 export const AVAILABILITY = {
   status: "accepting_projects" as const,
   note: "Typically starts within days of the first call. Fixed quotes within 24 hours of receiving a brief.",
-  bookingUrl: PROFILE.contact.calendly,
+  bookingUrl: PROFILE.contact.booking,
   timezone: "UTC+1 — flexible overlap with EU and US East Coast",
 };
 
@@ -119,7 +122,7 @@ export const SCENARIOS = [
   {
     title: "The founder delegate",
     prompt:
-      '"Claude, I need a freelance AI engineer to build a support chatbot under $2000. Find someone good and send them my requirements."',
+      '"Claude, I need a freelance AI engineer to build a support chatbot under $8000. Find someone good and send them my requirements."',
     tools: ["get_pricing", "search_projects", "submit_project_brief"],
   },
   {
