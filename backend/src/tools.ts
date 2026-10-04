@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { AVAILABILITY, PROFILE, PROJECTS, SERVICES } from "./content.js";
+import { AUDIT_OFFER, AVAILABILITY, PROFILE, PROJECTS, SERVICES } from "./content.js";
 import { saveBrief } from "./db.js";
 import { notifyBrief } from "./notify.js";
 
@@ -35,7 +35,7 @@ export const inputSchemas = {
     project_type: z.string().min(1).max(120).describe("What should be built, e.g. 'AI support chatbot'"),
     features: z.array(z.string().max(60)).max(12).default([]).describe("Feature list, optional"),
     timeline: z.string().max(40).optional().describe("e.g. 'ASAP', '2-4 weeks'"),
-    budget: z.string().max(40).optional().describe("e.g. '$500-$2k'"),
+    budget: z.string().max(40).optional().describe("e.g. '$3.5k - $9k'. A $900 audit is the entry point."),
     notes: z.string().max(1000).optional().describe("Anything else"),
   },
 } as const;
@@ -105,10 +105,9 @@ export async function handleGetPricing() {
     [
       `${PROFILE.name} — fixed-price services (no hourly billing):`,
       "",
-      ...SERVICES.map(
-        (s) => `- ${s.title}: ${s.priceLabel}${s.priceFromUsd ? ` (from $${s.priceFromUsd})` : ""} · ETA ${s.eta}\n  ${s.desc}`,
-      ),
+      ...SERVICES.map((s) => `- ${s.title}: ${s.priceLabel} · ETA ${s.eta}\n  ${s.desc}`),
       "",
+      `Entry point: ${AUDIT_OFFER.price}, ${AUDIT_OFFER.duration}. ${AUDIT_OFFER.terms}`,
       "Every engagement: weekly live demos, full source ownership, 30 days of fixes included.",
       BOOKING_LINE,
     ].join("\n"),

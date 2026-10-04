@@ -20,7 +20,7 @@ const TOOLS: { id: ToolId; label: string; args: Record<string, string> }[] = [
       name: "Demo visitor",
       contact: "demo@example.com",
       project_type: "AI support chatbot",
-      budget: "$500-$2k",
+      budget: "$3.5k - $9k",
       timeline: "ASAP",
       notes: "",
     },

@@ -8,7 +8,7 @@ export const PROFILE = {
   name: "Djaouad Frih",
   role: "Full-Stack AI Engineer",
   tagline: "I build production AI agents, RAG systems, and the products around them — shipped, not demoed.",
-  location: "Remote worldwide (UTC+1) — overlaps EU & US hours",
+  location: "Remote worldwide (UTC+1) — overlaps EU business hours; 13:00–17:00 UTC US-East overlap",
   availability: "Booking projects now — can typically start within days.",
   stack: [
     "TypeScript", "Next.js", "NestJS", "React Native (Expo)", "PostgreSQL",
@@ -46,9 +46,9 @@ export const PROJECTS: Project[] = [
     year: "2025",
     oneLiner: "24/7 receptionist that answers, books, captures leads and routes by department.",
     description:
-      "Production receptionist trained on a business's own content — answers customers in under a second via RAG over pgvector, books appointments through tool calls, captures leads, routes conversations to the right department and hands off to humans when confidence drops. Ships as web app + published Android app.",
+      "Production receptionist trained on a business's own content — answers customers from a pgvector RAG index, books appointments through tool calls, captures leads, routes conversations to the right department and hands off to humans when confidence drops. Ships as web app + published Android app. Note: end-to-end answer latency is model-bound and has not been benchmarked; ask for current p50/p95 on your own content before committing to a figure.",
     stack: "Next.js · NestJS · pgvector · React Native · Gemini",
-    metrics: ["<1s first response", "24/7 unattended", "Android app published"],
+    metrics: ["Books + captures leads", "24/7 unattended", "Android app published"],
     demo: "https://chat.djaouad.is-a.dev",
     source: "https://github.com/djoudad292/ai-virtual-receptionist",
   },
@@ -86,27 +86,56 @@ export interface Service {
   eta: string;
 }
 
+/**
+ * THE LADDER — keep byte-identical to portfolio-website/lib/positioning.ts.
+ * A previous version priced "Starter" at $4,000 here while the public landing
+ * page rendered "From $500" for the same tier: an agent calling get_pricing
+ * saw one number and a human visiting the page saw another. Both now resolve
+ * to the same constant.
+ */
+export const AUDIT_OFFER = {
+  price: "$900",
+  duration: "five working days",
+  summary:
+    "Retrieval and authorization audit on your own documents. Precision/recall/F1 against a goldset built from your corpus, refusal rate on out-of-scope questions, citation correctness, p50/p95 latency and token cost, and a server-side authorization review.",
+  terms: "Failures are published alongside the scores. Credited in full against any build that follows.",
+} as const;
+
 export const SERVICES: Service[] = [
+  {
+    title: "Audit — AI reliability & retrieval review",
+    desc: "The entry offer. Five working days, no commitment to a build. Retrieval precision/recall/F1 against a goldset from your own corpus, refusal rate on out-of-scope questions, citation correctness, p50/p95 latency and token cost, and a server-side authorization review. Failures published, not hidden. Credited in full against a build.",
+    priceFromUsd: 900,
+    priceLabel: "$900",
+    eta: "5 working days",
+  },
   {
     title: "Starter — AI chatbot or agent",
     desc: "Trained on your content: answers, books, qualifies, escalates. Deployed to your domain with an embeddable widget.",
-    priceFromUsd: 4000,
-    priceLabel: "From $4,000",
+    priceFromUsd: 3500,
+    priceLabel: "From $3,500",
     eta: "~1–2 weeks",
   },
   {
     title: "Professional — production AI system",
     desc: "Everything in Starter plus RAG pipeline, tool calling, admin dashboard and live analytics — the full stack behind Djaouad's own live demos.",
-    priceFromUsd: 7500,
-    priceLabel: "From $7,500",
+    priceFromUsd: 6500,
+    priceLabel: "From $6,500",
     eta: "2–4 weeks",
   },
   {
     title: "Custom — SaaS & multi-service products",
     desc: "Multi-tenant platforms with payments, dashboards, React Native apps and third-party integrations. Scoped on a free call.",
-    priceFromUsd: 12000,
-    priceLabel: "From $12,000",
+    priceFromUsd: 9000,
+    priceLabel: "From $9,000",
     eta: "2–8 weeks",
+  },
+  {
+    title: "Monitoring — post-deployment ops",
+    desc: "The part nobody sells and every buyer needs. Retrieval drift alerting, model-migration and deprecation handling, rollback path, and the eval harness kept wired into CI so a regression removes the merge button.",
+    priceFromUsd: 300,
+    priceLabel: "$300/month",
+    eta: "ongoing",
   },
 ];
 
@@ -114,7 +143,7 @@ export const AVAILABILITY = {
   status: "accepting_projects" as const,
   note: "Typically starts within days of the first call. Fixed quotes within 24 hours of receiving a brief.",
   bookingUrl: PROFILE.contact.booking,
-  timezone: "UTC+1 — flexible overlap with EU and US East Coast",
+  timezone: "UTC+1 — overlaps EU business hours; 13:00–17:00 UTC US-East overlap",
 };
 
 /** Famous flows this server was built for — surfaced in docs and the playground. */
