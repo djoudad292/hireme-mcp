@@ -35,7 +35,7 @@ export const inputSchemas = {
     project_type: z.string().min(1).max(120).describe("What should be built, e.g. 'AI support chatbot'"),
     features: z.array(z.string().max(60)).max(12).default([]).describe("Feature list, optional"),
     timeline: z.string().max(40).optional().describe("e.g. 'ASAP', '2-4 weeks'"),
-    budget: z.string().max(40).optional().describe("e.g. '$3.5k - $9k'. A $900 audit is the entry point."),
+    budget: z.string().max(40).optional().describe("e.g. '$3.5k - $9k'. A free audit is the entry point."),
     notes: z.string().max(1000).optional().describe("Anything else"),
   },
 } as const;

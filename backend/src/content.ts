@@ -17,10 +17,10 @@ export const PROFILE = {
   contact: {
     email: "contact@djaouad.is-a.dev",
     whatsapp: "+213780688125",
-    // Cal.com is the canonical scheduler. VERIFY this handle resolves before
-    // relying on it — a previously-configured Calendly link
-    // (https://calendly.com/oufr29/30min) still works if you prefer to revert.
-    booking: "https://cal.com/djaouad/30min",
+    // VERIFIED 2026-10-04: cal.com/djaouad/30min returns HTTP 404 — the handle
+    // was never created. Calendly handle below is live. This must stay
+    // identical to portfolio-website/lib/positioning.ts BOOKING_URL.
+    booking: "https://calendly.com/oufr29/30min",
     portfolio: "https://djaouad.is-a.dev",
     github: "https://github.com/djoudad292",
     linkedin: "https://linkedin.com/in/djaouad-frih",
@@ -88,26 +88,25 @@ export interface Service {
 
 /**
  * THE LADDER — keep byte-identical to portfolio-website/lib/positioning.ts.
- * A previous version priced "Starter" at $4,000 here while the public landing
- * page rendered "From $500" for the same tier: an agent calling get_pricing
- * saw one number and a human visiting the page saw another. Both now resolve
- * to the same constant.
+ * The audit is FREE (the entry offer). Full builds start at $3,500. This is the
+ * single price floor exposed to AI agents via get_pricing, matching the
+ * PORTFOLIO_PRICE_ANCHOR. One number, no contradiction.
  */
 export const AUDIT_OFFER = {
-  price: "$900",
-  duration: "five working days",
+  price: "Free",
+  duration: "one week, target",
   summary:
     "Retrieval and authorization audit on your own documents. Precision/recall/F1 against a goldset built from your corpus, refusal rate on out-of-scope questions, citation correctness, p50/p95 latency and token cost, and a server-side authorization review.",
-  terms: "Failures are published alongside the scores. Credited in full against any build that follows.",
+  terms: "Failures are published alongside the scores. Credited in full against any build that follows. Turnaround is a target, not a guarantee — it depends on the size of the corpus turned into a goldset.",
 } as const;
 
 export const SERVICES: Service[] = [
   {
     title: "Audit — AI reliability & retrieval review",
-    desc: "The entry offer. Five working days, no commitment to a build. Retrieval precision/recall/F1 against a goldset from your own corpus, refusal rate on out-of-scope questions, citation correctness, p50/p95 latency and token cost, and a server-side authorization review. Failures published, not hidden. Credited in full against a build.",
-    priceFromUsd: 900,
-    priceLabel: "$900",
-    eta: "5 working days",
+    desc: "The entry offer. One week, target — turnaround depends on the size of the corpus turned into a goldset. Retrieval precision/recall/F1 against a goldset from your own corpus, refusal rate on out-of-scope questions, citation correctness, p50/p95 latency and token cost, and a server-side authorization review. Failures published, not hidden. Credited in full against a build.",
+    priceFromUsd: null,
+    priceLabel: "Free",
+    eta: "one week, target",
   },
   {
     title: "Starter — AI chatbot or agent",
@@ -137,6 +136,13 @@ export const SERVICES: Service[] = [
     priceLabel: "$300/month",
     eta: "ongoing",
   },
+  {
+    title: "White-label — agency capacity",
+    desc: "I work as your delivery layer: scoped, fixed-price, end-to-end builds you take to the client under your brand. You keep the relationship and the margin; I bring production engineering and retrieval benchmarking. Starts at $3,500.",
+    priceFromUsd: 3500,
+    priceLabel: "From $3,500",
+    eta: "1–3 weeks",
+  },
 ];
 
 export const AVAILABILITY = {
@@ -151,7 +157,13 @@ export const SCENARIOS = [
   {
     title: "The founder delegate",
     prompt:
-      '"Claude, I need a freelance AI engineer to build a support chatbot under $8000. Find someone good and send them my requirements."',
+      '"Claude, I need a freelance AI engineer to build a support chatbot. Find someone good and send them my requirements."',
+    tools: ["get_pricing", "search_projects", "submit_project_brief"],
+  },
+  {
+    title: "The agency white-label",
+    prompt:
+      '"Find me a freelance AI engineer to build my client a production retrieval system, quoted fixed-price as my delivery layer."',
     tools: ["get_pricing", "search_projects", "submit_project_brief"],
   },
   {
