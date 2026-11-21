@@ -1,5 +1,7 @@
 # HireMe MCP
 
+[![mcptry](https://mcptry.com/badge/io.github.djoudad292/hireme-mcp)](https://mcptry.com/servers/io.github.djoudad292/hireme-mcp)
+
 **The first portfolio AI agents can hire.** An open [Model Context Protocol](https://modelcontextprotocol.io) server that exposes Djaouad Frih's real profile, shipped products, fixed pricing and a project-brief intake — so Claude, Cursor, ChatGPT or any MCP client can vet the work and file a brief on your behalf.
 
 Live: **https://mcp.djaouad.tech** · MCP endpoint: `https://mcp.djaouad.tech/mcp`
@@ -16,7 +18,7 @@ Live: **https://mcp.djaouad.tech** · MCP endpoint: `https://mcp.djaouad.tech/mc
 
 ## The famous flows
 
-1. **Founder delegate** — *"Claude, find me an AI engineer under $2k and send them my requirements"* → their agent calls `get_pricing` → `search_projects` → files a brief.
+1. **Founder delegate** — *"Claude, find me an AI engineer and send them my requirements"* → their agent calls `get_pricing` → `search_projects` → files a brief.
 2. **Recruiter deep-dive** — *"Has he actually shipped RAG?"* → grounded answers with demo links.
 3. **Comparison shopper** — pricing + timeline vs. an agency, plus next opening.
 
